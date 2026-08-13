@@ -1,1 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Nillo — Fino e Saboroso</title>
+<meta name="description" content="Café Nillo · 100% Arábica · Torrado e moído. Um café fino e saboroso, indústria brasileira.">
+<meta property="og:title" content="Café Nillo — Fino e Saboroso">
+<meta property="og:description" content="Café 100% arábica, torrado e moído. A qualidade que você sente em cada xícara.">
+<meta property="og:image" content="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786394736/logo_cafenillo_lewehi.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786394736/logo_cafenillo_lewehi.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brown:#5A4327;
+  --brown-dark:#3B2C18;
+  --brown-deep:#241811;
+  --gold:#C9A24B;
+  --gold-soft:#B8912F;
+  --cream:#F5F0E6;
+  --cream-2:#EEE7D8;
+  --ink:#2E2419;
+  --muted:#6B5B45;
+  --line:rgba(90,67,39,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+/* VINHETA DE ABERTURA */
+.intro{position:fixed;inset:0;z-index:9999;background:var(--brown-deep);display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .8s ease}
+.intro.hide{opacity:0;pointer-events:none}
+.intro-vid{width:100%;height:100%;object-fit:cover}
+.intro-skip{position:absolute;bottom:32px;right:32px;background:rgba(36,24,17,.5);border:1px solid rgba(201,162,75,.4);color:var(--cream);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;font-weight:600;padding:10px 20px;border-radius:24px;cursor:pointer;transition:.25s;backdrop-filter:blur(4px)}
+.intro-skip:hover{background:var(--gold);color:var(--brown-deep);border-color:var(--gold)}
+body.intro-lock{overflow:hidden}
+@media(max-width:560px){.intro-skip{bottom:22px;right:22px;padding:8px 16px;font-size:.72rem}}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.display{font-family:'Cormorant Garamond',Georgia,serif}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.22em;font-weight:600;font-size:.8rem}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+section{padding:100px 0}
 
+/* NAV */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(36,24,17,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,162,75,.18)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:46px;width:auto}
+.brand .txt .name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.35rem;letter-spacing:.04em;line-height:1;color:var(--cream)}
+.brand .txt .sub{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-top:3px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--cream);font-size:.82rem;font-weight:500;opacity:.85;transition:.2s}
+.nav-links a:hover{opacity:1;color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-weight:600;font-size:.84rem;padding:14px 28px;border-radius:2px;cursor:pointer;transition:.22s;border:1px solid transparent}
+.btn-gold{background:var(--gold);color:var(--brown-deep)}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.btn-out{border-color:var(--gold);color:var(--gold);background:transparent}
+.btn-out:hover{background:var(--gold);color:var(--brown-deep)}
+.btn-dark{background:var(--brown-dark);color:var(--cream)}
+.btn-dark:hover{background:var(--brown-deep)}
+.nav-cta{padding:11px 22px}
+.burger{display:none;background:none;border:0;color:var(--cream);cursor:pointer}
+
+/* HERO */
+.hero{position:relative;width:100%;overflow:hidden;margin:0;padding:0;line-height:0;font-size:0}
+.hero-full{width:100%;height:auto;display:block}
+.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;color:var(--cream);opacity:.9;animation:bob 2s ease-in-out infinite;filter:drop-shadow(0 2px 6px rgba(0,0,0,.6))}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* SECTION HEAD */
+.sec-head{margin-bottom:56px;max-width:640px}
+.sec-head .eyebrow{color:var(--gold-soft)}
+.sec-head h2{font-size:clamp(2.2rem,4.5vw,3.3rem);font-weight:700;line-height:1.02;margin-top:12px;color:var(--brown-dark)}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+
+/* HISTORIA */
+.historia{background:var(--cream-2)}
+.hist-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:64px;align-items:center}
+.hist-copy p{color:var(--muted);margin-bottom:18px;max-width:440px}
+.media{border-radius:8px;overflow:hidden;box-shadow:0 24px 50px rgba(46,31,18,.22);position:relative}
+.media img{width:100%;height:100%;object-fit:cover}
+.hist-img{aspect-ratio:auto;background:none;box-shadow:none;border-radius:0}
+.hist-img img{width:100%;height:auto;object-fit:contain}
+.prov{outline:1.5px dashed var(--gold-soft);outline-offset:4px;background:rgba(201,162,75,.06);border-radius:6px}
+.prov-tag{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;border:1px solid var(--gold-soft);padding:2px 9px;border-radius:20px;margin-bottom:10px}
+
+/* ORIGEM */
+.origem-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.origem-img{aspect-ratio:4/3}
+.origem-copy p.lead{color:var(--muted);margin:14px 0 32px;max-width:420px}
+.spec-list{display:flex;flex-direction:column;gap:22px}
+.spec{display:flex;gap:16px;align-items:flex-start}
+.spec .si{width:40px;height:40px;flex:0 0 40px;color:var(--gold-soft);border:1px solid var(--line);border-radius:50%;padding:8px}
+.spec .sl{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:var(--gold-soft);font-weight:700}
+.spec .sv{font-weight:500;color:var(--brown-dark);font-size:1.05rem}
+
+/* PERFIL */
+.perfil{background:var(--brown-dark);color:var(--cream);position:relative;overflow:hidden}
+.perfil::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 10%,rgba(201,162,75,.1),transparent 45%)}
+.perfil .wrap{position:relative}
+.perfil .sec-head h2{color:var(--cream)}
+.perfil .sec-head .eyebrow{color:var(--gold)}
+.perfil-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+.pcard{background:rgba(245,240,230,.04);border:1px solid rgba(201,162,75,.18);border-radius:8px;padding:26px 14px;text-align:center;transition:.25s}
+.pcard:hover{background:rgba(201,162,75,.1);border-color:var(--gold);transform:translateY(-4px)}
+.pcard .pi{width:36px;height:36px;margin:0 auto 16px;color:var(--gold)}
+.pcard .pl{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:rgba(245,240,230,.6);font-weight:600;margin-bottom:8px}
+.pcard .pv{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--cream);margin-bottom:14px;line-height:1.1}
+.dots{display:flex;gap:5px;justify-content:center}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(245,240,230,.22)}
+.dot.on{background:var(--gold)}
+
+/* PREPARO — passo a passo animado */
+.preparo{background:var(--cream-2)}
+.prep{max-width:760px;margin:0 auto}
+.prep-track{position:relative;display:flex;justify-content:space-between;align-items:center;margin-bottom:48px}
+.prep-track::before{content:"";position:absolute;left:18px;right:18px;top:50%;height:2px;background:rgba(90,67,39,.16);transform:translateY(-50%)}
+.prep-fill{position:absolute;left:18px;top:50%;height:2px;background:var(--gold);transform:translateY(-50%);width:0;transition:width .5s ease;z-index:1}
+.pnode{position:relative;z-index:2;width:38px;height:38px;border-radius:50%;border:2px solid rgba(90,67,39,.22);background:var(--cream-2);color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center}
+.pnode:hover{border-color:var(--gold-soft);color:var(--gold-soft)}
+.pnode.is-done{border-color:var(--gold);background:var(--gold);color:var(--brown-deep)}
+.pnode.is-active{border-color:var(--gold);color:var(--brown-dark);background:var(--cream);transform:scale(1.18);box-shadow:0 6px 18px rgba(201,162,75,.35)}
+.prep-stage{position:relative;min-height:220px;display:flex;align-items:center;justify-content:center}
+.prep-slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .45s ease,transform .45s ease}
+.prep-slide.is-active{opacity:1;transform:none;pointer-events:auto}
+.prep-ic{width:96px;height:96px;border-radius:50%;border:1px solid rgba(201,162,75,.4);display:flex;align-items:center;justify-content:center;color:var(--brown-dark);background:rgba(255,255,255,.4)}
+.prep-ic svg{width:56px;height:56px}
+.prep-body .prep-num{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--gold-soft);font-weight:700}
+.prep-body h3{font-size:1.7rem;color:var(--brown-dark);margin:4px 0 8px;line-height:1.05}
+.prep-body p{font-size:1rem;color:var(--muted);max-width:420px;margin:0 auto}
+.prep-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:40px}
+.pbtn{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--cream);color:var(--brown-dark);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.22s}
+.pbtn:hover{border-color:var(--gold);color:var(--gold-soft);transform:translateY(-2px)}
+.pbtn-play{background:var(--brown-dark);color:var(--cream);border-color:var(--brown-dark);width:54px;height:54px}
+.pbtn-play:hover{background:var(--brown-deep);color:var(--gold)}
+/* animações dos ícones ao entrar */
+.prep-slide.is-active .dw{stroke-dasharray:220;stroke-dashoffset:220;animation:draw 1s ease forwards}
+.prep-slide.is-active .steam{stroke-dasharray:14;stroke-dashoffset:14;animation:draw .6s ease .7s forwards,floatUp 2.4s ease-in-out 1.3s infinite}
+.prep-slide.is-active .pour,.prep-slide.is-active .drip,.prep-slide.is-active .sweet{opacity:0;animation:fadeIn .4s ease .9s forwards}
+.prep-slide.is-active .pour{animation:pourDrop 1.4s ease .9s infinite}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes floatUp{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(-4px);opacity:1}}
+@keyframes pourDrop{0%{opacity:0;transform:translateY(-4px)}40%{opacity:1}100%{opacity:0;transform:translateY(6px)}}
+
+/* ENCONTRAR */
+.encontrar{position:relative;color:var(--cream);overflow:hidden}
+.encontrar .enc-bg{position:absolute;inset:0;z-index:0}
+.encontrar .enc-bg img{width:100%;height:100%;object-fit:cover}
+.encontrar .enc-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(36,24,17,.96),rgba(36,24,17,.82) 55%,rgba(46,31,18,.55))}
+.encontrar .wrap{position:relative;z-index:1}
+.enc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.encontrar .eyebrow{color:var(--gold)}
+.encontrar h2{font-size:clamp(2.2rem,4.5vw,3.3rem);color:var(--cream);line-height:1.02;margin:12px 0 18px}
+.encontrar p.lead{color:rgba(245,240,230,.82);max-width:400px;margin-bottom:32px}
+.ig-btn{display:inline-flex;align-items:center;gap:14px;background:rgba(245,240,230,.06);border:1px solid rgba(201,162,75,.3);padding:18px 24px;border-radius:8px;transition:.25s;max-width:340px}
+.ig-btn:hover{background:rgba(201,162,75,.14);border-color:var(--gold);transform:translateY(-2px)}
+.ig-btn .igi{width:36px;height:36px;color:var(--gold);flex:0 0 36px}
+.ig-btn .igt{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--cream)}
+.ig-btn .igs{font-size:.82rem;color:rgba(245,240,230,.6)}
+.avail{margin-top:34px}
+.avail .al{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--gold);margin-bottom:16px;font-weight:600}
+.avail-row{display:flex;gap:30px;flex-wrap:wrap}
+.av{display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(245,240,230,.8)}
+.av .avi{width:30px;height:30px;color:var(--gold)}
+.av span{font-size:.78rem}
+.enc-card{background:rgba(36,24,17,.55);border:1px solid rgba(201,162,75,.22);border-radius:10px;padding:40px 34px;text-align:center;backdrop-filter:blur(3px)}
+.enc-card .gmark{width:70px;color:var(--gold);margin:0 auto 18px}
+.goias-map{width:120px;height:auto;margin:0 auto 18px;filter:brightness(0) saturate(100%) invert(72%) sepia(38%) saturate(560%) hue-rotate(4deg) brightness(92%) contrast(88%)}
+.enc-card h3{font-size:1.7rem;color:var(--cream);margin-bottom:6px}
+.enc-card p{color:rgba(245,240,230,.7);font-size:.92rem}
+.city-list{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:18px 0 12px}
+.city-list span{font-family:'Barlow Condensed',sans-serif;letter-spacing:.03em;font-size:.86rem;color:var(--cream);border:1px solid rgba(201,162,75,.4);border-radius:20px;padding:5px 14px;transition:.2s}
+.city-list span:hover{background:var(--gold);color:var(--brown-deep);border-color:var(--gold)}
+.city-more{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.05rem!important;color:var(--gold)!important}
+
+/* CLIENTES */
+.clientes-wrap{position:relative;z-index:1;margin-top:64px;padding-top:44px;border-top:1px solid rgba(201,162,75,.2)}
+.cli-group{margin-bottom:36px}
+.cli-group:last-child{margin-bottom:0}
+.cli-label{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.82rem;color:var(--gold-soft);font-weight:700;text-align:center;margin-bottom:22px;position:relative}
+.cli-label.light{color:var(--gold)}
+.cli-label::before,.cli-label::after{content:"";position:absolute;top:50%;width:50px;height:1px;background:rgba(201,162,75,.3)}
+.cli-label::before{right:calc(50% + 110px)}
+.cli-label::after{left:calc(50% + 110px)}
+.cli-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.cli-card{background:rgba(245,240,230,.06);border:1px solid rgba(201,162,75,.28);border-radius:6px;padding:14px 22px;font-family:'Barlow Condensed',sans-serif;font-size:1.02rem;font-weight:500;letter-spacing:.03em;color:var(--cream);transition:.25s;text-align:center}
+.cli-card:hover{border-color:var(--gold);background:rgba(201,162,75,.16);transform:translateY(-3px)}
+@media(max-width:560px){
+  .cli-label::before,.cli-label::after{display:none}
+  .cli-card{width:100%;padding:12px 16px}
+}
+
+/* REVENDA */
+.revenda-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center}
+.rev-left{display:flex;flex-direction:column;gap:24px}
+.rev-icon{width:80px;height:80px;color:var(--gold-soft);border:1.5px solid var(--line);border-radius:50%;padding:18px}
+.rev-left h2{font-size:clamp(2rem,4vw,2.9rem);color:var(--brown-dark);line-height:1.02}
+.rev-left p{color:var(--muted);max-width:400px}
+.rev-benefits{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px}
+.ben{display:flex;gap:14px;align-items:flex-start}
+.ben .bi{width:36px;height:36px;flex:0 0 36px;color:var(--gold-soft)}
+.ben h4{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:.94rem;color:var(--brown-dark);font-weight:600;margin-bottom:3px}
+.ben p{font-size:.87rem;color:var(--muted)}
+
+/* CONTATO */
+.contato{background:var(--cream-2)}
+.cont-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px}
+.cont-info h2{font-size:clamp(2rem,4vw,2.9rem);color:var(--brown-dark);line-height:1.02;margin-bottom:14px}
+.cont-info p.lead{color:var(--muted);margin-bottom:32px;max-width:340px}
+.cont-list{display:flex;flex-direction:column;gap:20px}
+.ci{display:flex;gap:14px;align-items:center}
+.ci .cii{width:44px;height:44px;flex:0 0 44px;color:var(--gold-soft);border:1px solid var(--line);border-radius:50%;padding:10px}
+.ci a,.ci span{font-weight:500;color:var(--brown-dark)}
+.cont-icons{display:flex;gap:16px}
+.cicon{width:54px;height:54px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-soft);transition:.25s;background:var(--cream)}
+.cicon svg{width:24px;height:24px}
+.cicon:hover{background:var(--gold);color:var(--brown-deep);border-color:var(--gold);transform:translateY(-3px)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column}
+.field.full{grid-column:1/-1}
+label{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--muted);margin-bottom:6px;font-weight:600}
+input,textarea{font-family:'Barlow',sans-serif;font-size:.95rem;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:var(--cream);color:var(--ink);transition:.2s}
+input:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,75,.14)}
+textarea{resize:vertical;min-height:120px}
+form .btn{grid-column:1/-1;justify-content:center;padding:16px}
+
+/* FOOTER */
+footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:44px;border-bottom:1px solid rgba(201,162,75,.14)}
+.foot-brand img{height:52px;margin-bottom:16px}
+.foot-brand p{font-size:.88rem;max-width:280px}
+.foot-col h5{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.74rem;color:var(--gold);margin-bottom:18px;font-weight:600}
+.foot-col a{display:block;font-size:.9rem;margin-bottom:11px;transition:.2s}
+.foot-col a:hover{color:var(--gold)}
+.foot-social{display:flex;gap:14px;margin-top:6px}
+.foot-social a{width:40px;height:40px;border:1px solid rgba(201,162,75,.28);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);transition:.2s}
+.foot-social a:hover{background:var(--gold);color:var(--brown-deep)}
+.foot-social svg{width:18px;height:18px}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;font-size:.8rem;color:rgba(245,240,230,.5)}
+.foot-bottom .legal{max-width:520px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none;flex-direction:column;position:absolute;top:74px;left:0;right:0;background:var(--brown-dark);padding:22px 28px;gap:18px;border-bottom:1px solid rgba(201,162,75,.18)}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  .hero-grid,.hist-grid,.origem-grid,.enc-grid,.revenda-grid,.cont-grid{grid-template-columns:1fr}
+  .perfil-grid{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);gap:40px 0}
+  .prep-body h3{font-size:1.4rem}
+  .rev-benefits{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr;gap:34px}
+  form{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  section{padding:70px 0}.wrap{padding:0 20px}
+  .hero-feats{flex-wrap:wrap;gap:24px}
+  .perfil-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .prep-track{margin-bottom:36px}
+  .pnode{width:32px;height:32px;font-size:.72rem}
+  .avail-row{gap:22px}
+  .nav-cta{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- VINHETA DE ABERTURA -->
+<div class="intro" id="intro">
+  <video class="intro-vid" id="introVid" autoplay muted playsinline preload="auto">
+    <source src="https://res.cloudinary.com/dnnnn7njk/video/upload/v1786628383/cafenillo_vinheta_d8bcxb.mp4" type="video/mp4">
+  </video>
+  <button class="intro-skip" id="introSkip">Pular ›</button>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <img src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786394736/logo_cafenillo_lewehi.png" alt="Café Nillo">
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#historia">Nossa História</a>
+      <a href="#origem">Origem</a>
+      <a href="#perfil">O Café</a>
+      <a href="#preparo">Preparo</a>
+      <a href="#encontrar">Onde Encontrar</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="#encontrar" class="btn btn-gold nav-cta">Onde Encontrar</a>
+    <button class="burger" aria-label="Abrir menu" onclick="document.getElementById('navlinks').classList.toggle('open')">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <img class="hero-full" src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786630439/headernillo_lfvqa4.jpg" alt="Café Nillo">
+  <svg class="scroll-hint" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</section>
+
+<!-- HISTORIA -->
+<section class="historia" id="historia">
+  <div class="wrap hist-grid">
+    <div class="hist-copy reveal">
+      <div class="sec-head" style="margin-bottom:28px">
+        <div class="eyebrow">Nossa História</div>
+        <h2>O sabor de Goiás<br>em cada xícara</h2>
+      </div>
+      <p>O Café Nillo nasceu em Goiás e leva em seu nome a essência do seu idealizador, Danillo Abdala. Mais do que uma marca, é o resultado da paixão pelo café e do desejo de oferecer uma bebida que una qualidade, sabor e autenticidade.</p>
+      <p>Acreditamos que um café especial começa muito antes da xícara. Por isso, cada etapa recebe atenção cuidadosa: da seleção dos grãos ao processo de torra, sempre com o compromisso de preservar os aromas, o equilíbrio e a riqueza de sabores que tornam o café uma experiência única.</p>
+      <p>Nosso propósito é simples: entregar um café fino, saboroso e feito com dedicação, valorizando a origem goiana e o cuidado artesanal em cada detalhe.</p>
+      <a href="#contato" class="btn btn-dark" style="margin-top:24px">Fale Conosco</a>
+    </div>
+    <div class="hist-img reveal">
+      <img src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786634934/goiascafe_dxlxmm.png" alt="Café Nillo — o sabor de Goiás">
+    </div>
+  </div>
+</section>
+
+<!-- ORIGEM -->
+<section class="origem" id="origem">
+  <div class="wrap origem-grid">
+    <div class="media origem-img reveal">
+      <img src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786634276/mockupnillo_rxjorb.jpg" alt="Café Nillo — embalagem">
+    </div>
+    <div class="origem-copy reveal">
+      <div class="eyebrow" style="color:var(--gold-soft)">De Goiás para sua xícara</div>
+      <h2 style="font-size:clamp(2.2rem,4.5vw,3.3rem);color:var(--brown-dark);line-height:1.02;margin-top:12px">Da origem<br>ao aroma</h2>
+      <p class="lead">Um café 100% arábica, torrado e moído no coração do Brasil. Indústria brasileira, feita para quem valoriza sabor e corpo em cada xícara.</p>
+      <div class="spec-list">
+        <div class="spec">
+          <svg class="si" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5-7-11a7 7 0 0114 0c0 6-7 11-7 11z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div><div class="sl">Origem</div><div class="sv">Goiás — Brasil</div></div>
+        </div>
+        <div class="spec">
+          <svg class="si" viewBox="0 0 24 24" fill="none"><path d="M12 3C12 3 6 8 6 14a6 6 0 0012 0c0-6-6-11-6-11z" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v12" stroke="currentColor" stroke-width="1.2"/></svg>
+          <div><div class="sl">Variedade</div><div class="sv">100% Arábica</div></div>
+        </div>
+        <div class="spec">
+          <svg class="si" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="12" rx="7" ry="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 3c-3 5-3 13 0 18" stroke="currentColor" stroke-width="1.2"/></svg>
+          <div><div class="sl">Processo</div><div class="sv">Natural</div></div>
+        </div>
+        <div class="spec">
+          <svg class="si" viewBox="0 0 24 24" fill="none"><path d="M12 2s5 4 5 9a5 5 0 01-10 0c0-2 1-3 1-3s-1 3 1 4c0-3 3-4 3-6 0-2-1-4-1-4z" stroke="currentColor" stroke-width="1.4"/></svg>
+          <div><div class="sl">Torra</div><div class="sv">Média</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFIL -->
+<section class="perfil" id="perfil">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Ficha Técnica</div>
+      <h2>O perfil do Café Nillo</h2>
+    </div>
+    <div class="perfil-grid reveal">
+      <div class="pcard">
+        <svg class="pi" viewBox="0 0 24 24" fill="none"><path d="M12 3C12 3 6 8 6 14a6 6 0 0012 0c0-6-6-11-6-11z" stroke="currentColor" stroke-width="1.4"/><path d="M12 7v12" stroke="currentColor" stroke-width="1.1"/></svg>
+        <div class="pl">Tipo de Café</div><div class="pv">100% Arábica</div>
+      </div>
+      <div class="pcard">
+        <svg class="pi" viewBox="0 0 24 24" fill="none"><path d="M8 4c0 3 2 3 2 6s-2 3-2 6M14 4c0 3 2 3 2 6s-2 3-2 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <div class="pl">Aroma</div><div class="pv">Intenso</div>
+        <div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></div>
+      </div>
+      <div class="pcard">
+        <svg class="pi" viewBox="0 0 24 24" fill="none"><path d="M5 10h14v3a7 7 0 01-14 0zM19 11h2a2.5 2.5 0 010 5h-2" stroke="currentColor" stroke-width="1.4"/></svg>
+        <div class="pl">Sabor</div><div class="pv">Intenso</div>
+        <div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></div>
+      </div>
+      <div class="pcard">
+        <svg class="pi" viewBox="0 0 24 24" fill="none"><rect x="6" y="9" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M18 11h2a2 2 0 010 4h-2M9 6c0-1 .5-1.5.5-2.5M13 6c0-1 .5-1.5.5-2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <div class="pl">Bebida</div><div class="pv">Dura</div>
+        <div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></div>
+      </div>
+      <div class="pcard">
+        <svg class="pi" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="12" rx="6" ry="8" stroke="currentColor" stroke-width="1.4"/><path d="M12 4c-2.5 4-2.5 12 0 16" stroke="currentColor" stroke-width="1.1"/></svg>
+        <div class="pl">Corpo</div><div class="pv">Encorpado</div>
+        <div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></div>
+      </div>
+      <div class="pcard">
+        <svg class="pi" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.4"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="14" cy="9" r="1" fill="currentColor"/><circle cx="15" cy="14" r="1" fill="currentColor"/><circle cx="10" cy="15" r="1" fill="currentColor"/></svg>
+        <div class="pl">Moagem</div><div class="pv">Média</div>
+        <div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div>
+      </div>
+      <div class="pcard">
+        <svg class="pi" viewBox="0 0 24 24" fill="none"><path d="M12 2s5 4 5 9a5 5 0 01-10 0c0-2 1-3 1-3s-1 3 1 4c0-3 3-4 3-6 0-2-1-4-1-4z" stroke="currentColor" stroke-width="1.4"/></svg>
+        <div class="pl">Torra</div><div class="pv">Média</div>
+        <div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREPARO -->
+<section class="preparo" id="preparo">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow">Sugestão de Preparo</div>
+      <h2>O jeito certo de preparar</h2>
+    </div>
+
+    <div class="prep reveal" id="prep">
+      <!-- Progresso / mini-passos clicáveis -->
+      <div class="prep-track" id="prepTrack">
+        <div class="prep-fill" id="prepFill"></div>
+        <button class="pnode is-active" data-i="0" aria-label="Passo 1"><span>01</span></button>
+        <button class="pnode" data-i="1" aria-label="Passo 2"><span>02</span></button>
+        <button class="pnode" data-i="2" aria-label="Passo 3"><span>03</span></button>
+        <button class="pnode" data-i="3" aria-label="Passo 4"><span>04</span></button>
+        <button class="pnode" data-i="4" aria-label="Passo 5"><span>05</span></button>
+        <button class="pnode" data-i="5" aria-label="Passo 6"><span>06</span></button>
+        <button class="pnode" data-i="6" aria-label="Passo 7"><span>07</span></button>
+      </div>
+
+      <!-- Palco animado -->
+      <div class="prep-stage">
+        <div class="prep-slide is-active" data-i="0">
+          <div class="prep-ic">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path class="dw" d="M16 26h26v11a13 13 0 01-26 0z"/>
+              <path class="dw" d="M42 28h5a5 5 0 010 10h-3"/>
+              <path class="steam" d="M24 18c0-3 3-3 3-6M32 18c0-3 3-3 3-6"/>
+            </svg>
+          </div>
+          <div class="prep-body"><span class="prep-num">Passo 01</span><h3>Aqueça a água</h3><p>Aqueça 1/2 litro de água, de preferência mineral ou filtrada.</p></div>
+        </div>
+
+        <div class="prep-slide" data-i="1">
+          <div class="prep-ic">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path class="dw" d="M20 20h24l-9 18h-6z"/>
+              <path class="dw" d="M30 38v9M34 38v9"/>
+              <path class="dw" d="M26 47h12"/>
+            </svg>
+          </div>
+          <div class="prep-body"><span class="prep-num">Passo 02</span><h3>Prepare o coador</h3><p>Utilize um coador ou filtro.</p></div>
+        </div>
+
+        <div class="prep-slide" data-i="2">
+          <div class="prep-ic">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse class="dw" cx="24" cy="20" rx="8" ry="11"/>
+              <path class="dw" d="M24 31v21"/>
+              <circle class="pour" cx="42" cy="26" r="1.4"/>
+              <circle class="pour" cx="46" cy="32" r="1.4"/>
+              <circle class="pour" cx="41" cy="36" r="1.4"/>
+            </svg>
+          </div>
+          <div class="prep-body"><span class="prep-num">Passo 03</span><h3>Adicione o café</h3><p>Coloque de 3 a 4 colheres (de sopa) de Café Nillo.</p></div>
+        </div>
+
+        <div class="prep-slide" data-i="3">
+          <div class="prep-ic">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path class="dw" d="M32 12c0 0 13 15 13 26a13 13 0 01-26 0c0-11 13-26 13-26z"/>
+              <path class="drip" d="M27 38a5 6 0 006 6"/>
+            </svg>
+          </div>
+          <div class="prep-body"><span class="prep-num">Passo 04</span><h3>Despeje a água</h3><p>Com a água em fervura, despeje devagar sobre o café.</p></div>
+        </div>
+
+        <div class="prep-slide" data-i="4">
+          <div class="prep-ic">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path class="dw" d="M22 16h20M22 48h20"/>
+              <path class="dw" d="M24 16c0 11 16 11 16 16s-16 5-16 16"/>
+              <path class="dw" d="M40 16c0 11-16 11-16 16"/>
+              <path class="drip" d="M32 34v6"/>
+            </svg>
+          </div>
+          <div class="prep-body"><span class="prep-num">Passo 05</span><h3>Deixe coar</h3><p>Espere o café ser coado de forma lenta e natural.</p></div>
+        </div>
+
+        <div class="prep-slide" data-i="5">
+          <div class="prep-ic">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path class="dw" d="M20 30h24v4a12 12 0 01-24 0z"/>
+              <path class="dw" d="M44 32h5a4 4 0 010 8h-3"/>
+              <path class="dw" d="M20 44h24"/>
+              <path class="sweet" d="M28 20l3 3-3 3-3-3zM36 22l3 3-3 3-3-3z"/>
+            </svg>
+          </div>
+          <div class="prep-body"><span class="prep-num">Passo 06</span><h3>Adoce a gosto</h3><p>Adoce a gosto (açúcar ou adoçante).</p></div>
+        </div>
+
+        <div class="prep-slide" data-i="6">
+          <div class="prep-ic">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path class="dw" d="M18 28h26v9a13 13 0 01-26 0z"/>
+              <path class="dw" d="M44 30h5a5 5 0 010 10h-3"/>
+              <ellipse class="dw" cx="31" cy="28" rx="13" ry="4"/>
+              <path class="steam" d="M26 20c0-3 3-3 3-6M34 20c0-3 3-3 3-6"/>
+            </svg>
+          </div>
+          <div class="prep-body"><span class="prep-num">Passo 07</span><h3>Sirva e aproveite</h3><p>Sirva-se à vontade e aproveite!</p></div>
+        </div>
+      </div>
+
+      <!-- Controles -->
+      <div class="prep-controls">
+        <button class="pbtn" id="prepPrev" aria-label="Passo anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="pbtn pbtn-play" id="prepPlay" aria-label="Play/Pause">
+          <svg class="ico-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          <svg class="ico-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button class="pbtn" id="prepNext" aria-label="Próximo passo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENCONTRAR -->
+<section class="encontrar" id="encontrar">
+  <div class="enc-bg"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1600&q=80" alt="Grãos de café"></div>
+  <div class="wrap enc-grid">
+    <div class="reveal">
+      <div class="eyebrow">Onde Encontrar</div>
+      <h2>Encontre o seu<br>Café Nillo</h2>
+      <p class="lead">O Café Nillo já está presente em diversas cidades goianas. Siga a gente no Instagram para acompanhar novidades e encontrar o ponto de venda mais próximo de você.</p>
+      <a href="https://www.instagram.com/cafenillo.br/" target="_blank" rel="noopener" class="ig-btn">
+        <svg class="igi" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        <div><div class="igt">@cafenillo.br</div><div class="igs">Siga no Instagram</div></div>
+      </a>
+    </div>
+    <div class="enc-card reveal">
+      <img class="goias-map" src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786625831/goias_hmmbgw.svg" alt="Mapa de Goiás">
+      <h3>Presente em Goiás</h3>
+      <p>Você encontra o Café Nillo em cidades como:</p>
+      <div class="city-list">
+        <span>Inhumas</span>
+        <span>Goianira</span>
+        <span>Goianésia</span>
+        <span>Petrolina de Goiás</span>
+        <span>Santa Rosa de Goiás</span>
+        <span>Brazabrantes</span>
+        <span>Caturaí</span>
+        <span>Nova Veneza</span>
+      </div>
+      <p class="city-more">e presente também em outras cidades goianas.</p>
+    </div>
+  </div>
+
+  <!-- Clientes / pontos de venda -->
+  <div class="wrap clientes-wrap">
+    <div class="cli-group reveal">
+      <div class="cli-label light">Supermercados</div>
+      <div class="cli-grid">
+        <div class="cli-card">Supermercado Basílico</div>
+        <div class="cli-card">Supermercado Caçula 2</div>
+        <div class="cli-card">Supermercado 2 Irmãos</div>
+      </div>
+    </div>
+
+    <div class="cli-group reveal">
+      <div class="cli-label light">Comércios &amp; Empresas</div>
+      <div class="cli-grid">
+        <div class="cli-card">Grupo Ventura</div>
+        <div class="cli-card">Hemolabor</div>
+        <div class="cli-card">Memorial Pax Silva</div>
+        <div class="cli-card">Irpro</div>
+        <div class="cli-card">Bom Dia Peças e Acessórios</div>
+        <div class="cli-card">Eletroauto</div>
+        <div class="cli-card">Solução Rolamentos</div>
+        <div class="cli-card">Centerx</div>
+        <div class="cli-card">Fotonex</div>
+        <div class="cli-card">Vibras</div>
+        <div class="cli-card">Cardanbras Auto</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENDA -->
+<section class="revenda" id="revenda">
+  <div class="wrap revenda-grid">
+    <div class="rev-left reveal">
+      <svg class="rev-icon" viewBox="0 0 48 48" fill="none"><path d="M8 24l8-8 6 6M24 22l6-6 8 8M14 30l6 6 4-4 4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h2>Quer vender<br>Café Nillo?</h2>
+      <p>Se você tem mercado, supermercado, empório, padaria, cafeteria ou outro estabelecimento, entre em contato com nossa equipe e seja um revendedor.</p>
+      <a href="#contato" class="btn btn-dark" style="align-self:flex-start">Quero Revender</a>
+    </div>
+    <div class="rev-benefits reveal">
+      <div class="ben"><svg class="bi" viewBox="0 0 24 24" fill="none"><path d="M12 2.5l2.9 5.9 6.6.95-4.75 4.65 1.12 6.55L12 17.7l-5.88 3.1 1.12-6.55L2.5 9.35l6.6-.95z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg><div><h4>Produto de qualidade</h4><p>Café 100% arábica selecionado.</p></div></div>
+      <div class="ben"><svg class="bi" viewBox="0 0 24 24" fill="none"><path d="M4 9l1.2-4.2A1 1 0 016.16 4h11.68a1 1 0 01.96.8L20 9M4 9h16M4 9v1.5a2.5 2.5 0 004 0 2.5 2.5 0 004 0 2.5 2.5 0 004 0 2.5 2.5 0 004 0V9M5 13v7h14v-7M10 20v-4h4v4" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg><div><h4>Ótimo para seu negócio</h4><p>Produto com alta aceitação e giro.</p></div></div>
+      <div class="ben"><svg class="bi" viewBox="0 0 24 24" fill="none"><path d="M15 5a5 5 0 015 5M15 2a8 8 0 018 8M6.5 4h2.6l1.4 4-2 1.4a11 11 0 005 5l1.4-2 4 1.4v2.6a2 2 0 01-2 2A15 15 0 014.5 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg><div><h4>Suporte comercial</h4><p>Apoio da nossa equipe.</p></div></div>
+      <div class="ben"><svg class="bi" viewBox="0 0 24 24" fill="none"><path d="M8 11l3 3 5-5M12 21a9 9 0 110-18 9 9 0 010 18z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><div><h4>Parceria de confiança</h4><p>Crescimento juntos.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="wrap cont-grid">
+    <div class="cont-info reveal">
+      <div class="eyebrow" style="color:var(--gold-soft)">Fale Conosco</div>
+      <h2 style="margin-top:10px">Vamos<br>conversar</h2>
+      <p class="lead">Dúvidas, sugestões ou pedidos? Nossa equipe está pronta para te atender.</p>
+      <div class="cont-icons">
+        <a href="https://wa.me/5562984095326" target="_blank" rel="noopener" class="cicon" aria-label="WhatsApp" title="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.5-6c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.3 7.3 0 01-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3A2.8 2.8 0 006 8.9c0 1.7 1.2 3.3 1.4 3.5a12.5 12.5 0 004.8 4.2c2.3.9 2.3.6 2.7.6a2.5 2.5 0 001.6-1.1 2 2 0 00.2-1.1c-.1 0-.3-.1-.5-.2z"/></svg>
+        </a>
+        <a href="mailto:cafenillo32@gmail.com" class="cicon" aria-label="E-mail" title="E-mail">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+        <a href="https://www.instagram.com/cafenillo.br/" target="_blank" rel="noopener" class="cicon" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+    <form class="reveal" id="contatoForm" onsubmit="enviarWhats(event)">
+      <div class="field"><label for="nome">Nome</label><input id="nome" type="text" placeholder="Seu nome" required></div>
+      <div class="field"><label for="email">E-mail</label><input id="email" type="email" placeholder="voce@email.com"></div>
+      <div class="field"><label for="tel">Telefone</label><input id="tel" type="tel" placeholder="(00) 00000-0000"></div>
+      <div class="field"><label for="assunto">Assunto</label><input id="assunto" type="text" placeholder="Assunto"></div>
+      <div class="field full"><label for="msg">Mensagem</label><textarea id="msg" placeholder="Escreva sua mensagem..." required></textarea></div>
+      <button type="submit" class="btn btn-gold">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.5-6c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.3 7.3 0 01-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3A2.8 2.8 0 006 8.9c0 1.7 1.2 3.3 1.4 3.5a12.5 12.5 0 004.8 4.2c2.3.9 2.3.6 2.7.6a2.5 2.5 0 001.6-1.1 2 2 0 00.2-1.1c-.1 0-.3-.1-.5-.2z"/></svg>
+        Enviar pelo WhatsApp
+      </button>
+      <p style="grid-column:1/-1;font-size:.78rem;color:var(--muted);text-align:center;margin-top:-4px">Ao enviar, você será direcionado ao nosso WhatsApp com a mensagem pronta.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786394736/logo_cafenillo_lewehi.png" alt="Café Nillo">
+        <p>Café 100% arábica, torrado e moído. A qualidade que você sente em cada xícara.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Navegação</h5>
+        <a href="#historia">Nossa História</a>
+        <a href="#origem">Origem</a>
+        <a href="#perfil">O Café</a>
+        <a href="#preparo">Preparo</a>
+        <a href="#encontrar">Onde Encontrar</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contato</h5>
+        <a href="#revenda">Seja Revendedor</a>
+        <a href="#contato">Fale Conosco</a>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/cafenillo.br/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Café Nillo. Todos os direitos reservados.</div>
+      <div class="legal">Produzido por: A &amp; A Indústria e Comércio de Produtos Alimentícios Ltda. · CNPJ: 12.369.456/0001-66 · Goiânia/GO · Indústria Brasileira</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---- Vinheta de abertura ----
+(function(){
+  var intro=document.getElementById('intro');
+  if(!intro) return;
+  var vid=document.getElementById('introVid');
+  var skip=document.getElementById('introSkip');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var jaViu=sessionStorage.getItem('nilloIntro')==='1';
+  function fecharIntro(){
+    if(intro.classList.contains('hide')) return;
+    intro.classList.add('hide');
+    try{ if(vid){vid.pause();} }catch(e){}
+    document.body.classList.remove('intro-lock');
+    try{sessionStorage.setItem('nilloIntro','1');}catch(e){}
+    setTimeout(function(){ if(intro&&intro.parentNode){intro.parentNode.removeChild(intro);} },900);
+  }
+  if(jaViu || reduce){ fecharIntro(); return; }
+  document.body.classList.add('intro-lock');
+  skip.addEventListener('click',fecharIntro);
+  if(vid){
+    vid.addEventListener('ended',fecharIntro);
+    // limita a vinheta a ~5s
+    setTimeout(fecharIntro,5000);
+    vid.addEventListener('error',fecharIntro);
+    var pr=vid.play();
+    if(pr&&pr.catch){ pr.catch(function(){ fecharIntro(); }); }
+  } else { fecharIntro(); }
+})();
+
+// Número do WhatsApp (formato internacional, só dígitos)
+var WHATSAPP = "5562984095326";
+function enviarWhats(e){
+  e.preventDefault();
+  var nome=(document.getElementById('nome').value||'').trim();
+  var email=(document.getElementById('email').value||'').trim();
+  var tel=(document.getElementById('tel').value||'').trim();
+  var assunto=(document.getElementById('assunto').value||'').trim();
+  var msg=(document.getElementById('msg').value||'').trim();
+  var linhas=['*Contato via site — Café Nillo*',''];
+  if(nome) linhas.push('*Nome:* '+nome);
+  if(email) linhas.push('*E-mail:* '+email);
+  if(tel) linhas.push('*Telefone:* '+tel);
+  if(assunto) linhas.push('*Assunto:* '+assunto);
+  if(msg) linhas.push('','*Mensagem:*',''+msg);
+  var texto=encodeURIComponent(linhas.join('\n'));
+  window.open('https://wa.me/'+WHATSAPP+'?text='+texto,'_blank');
+}
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+
+// ---- Passo a passo de preparo (auto + controles) ----
+(function(){
+  var prep=document.getElementById('prep'); if(!prep) return;
+  var slides=prep.querySelectorAll('.prep-slide');
+  var nodes=prep.querySelectorAll('.pnode');
+  var fill=document.getElementById('prepFill');
+  var track=document.getElementById('prepTrack');
+  var playBtn=document.getElementById('prepPlay');
+  var icoPlay=playBtn.querySelector('.ico-play');
+  var icoPause=playBtn.querySelector('.ico-pause');
+  var total=slides.length, cur=0, timer=null, playing=false;
+  var DELAY=3200;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function go(i){
+    cur=(i+total)%total;
+    slides.forEach(function(s,idx){s.classList.toggle('is-active',idx===cur)});
+    nodes.forEach(function(n,idx){
+      n.classList.toggle('is-active',idx===cur);
+      n.classList.toggle('is-done',idx<cur);
+    });
+    // largura da barra de progresso
+    var w=(track.clientWidth-36); // menos os paddings laterais (18px cada)
+    fill.style.width=(total>1?(cur/(total-1))*w:0)+'px';
+  }
+  function next(){go(cur+1)}
+  function prev(){go(cur-1)}
+  function setIcons(){icoPause.style.display=playing?'':'none';icoPlay.style.display=playing?'none':'';}
+  function play(){if(reduce)return;playing=true;clearInterval(timer);timer=setInterval(next,DELAY);setIcons()}
+  function pause(){playing=false;clearInterval(timer);setIcons()}
+  function toggle(){playing?pause():play()}
+
+  document.getElementById('prepNext').addEventListener('click',function(){next();if(playing)play()});
+  document.getElementById('prepPrev').addEventListener('click',function(){prev();if(playing)play()});
+  playBtn.addEventListener('click',toggle);
+  nodes.forEach(function(n){n.addEventListener('click',function(){go(+n.dataset.i);if(playing)play()})});
+  window.addEventListener('resize',function(){go(cur)});
+
+  go(0); setIcons();
+  // começa a tocar quando a seção entra na tela
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){ if(!reduce&&!playing) play(); }
+    else { pause(); }
+  })},{threshold:.4});
+  io.observe(prep);
+})();
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>
