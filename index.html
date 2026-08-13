@@ -78,7 +78,12 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(36,24,17,.96);backdr
 
 /* HISTORIA */
 .historia{background:var(--cream-2)}
-.hist-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:64px;align-items:center}
+.hist-grid{display:grid;grid-template-columns:.92fr 1.08fr;grid-template-areas:"head img" "copy img";gap:0 64px;align-items:start}
+.hist-head{grid-area:head;margin-bottom:24px}
+.hist-head .eyebrow{color:var(--gold-soft)}
+.hist-head h2{font-size:clamp(2.2rem,4.5vw,3.3rem);font-weight:700;line-height:1.02;margin-top:12px;color:var(--brown-dark)}
+.hist-copy{grid-area:copy}
+.hist-img{grid-area:img;align-self:center}
 .hist-copy p{color:var(--muted);margin-bottom:18px;max-width:440px}
 .media{border-radius:8px;overflow:hidden;box-shadow:0 24px 50px rgba(46,31,18,.22);position:relative}
 .media img{width:100%;height:100%;object-fit:cover}
@@ -88,7 +93,11 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(36,24,17,.96);backdr
 .prov-tag{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;border:1px solid var(--gold-soft);padding:2px 9px;border-radius:20px;margin-bottom:10px}
 
 /* ORIGEM */
-.origem-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.origem-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"img head" "img copy";gap:0 64px;align-items:start}
+.origem-head{grid-area:head;margin-bottom:18px}
+.origem-head h2{font-size:clamp(2.2rem,4.5vw,3.3rem);color:var(--brown-dark);line-height:1.02;margin-top:12px}
+.origem-img{grid-area:img;align-self:center}
+.origem-copy{grid-area:copy}
 .origem-img{aspect-ratio:4/3}
 .origem-copy p.lead{color:var(--muted);margin:14px 0 32px;max-width:420px}
 .spec-list{display:flex;flex-direction:column;gap:22px}
@@ -252,7 +261,11 @@ footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30
   .nav-links{display:none;flex-direction:column;position:absolute;top:74px;left:0;right:0;background:var(--brown-dark);padding:22px 28px;gap:18px;border-bottom:1px solid rgba(201,162,75,.18)}
   .nav-links.open{display:flex}
   .burger{display:block}
-  .hero-grid,.hist-grid,.origem-grid,.enc-grid,.revenda-grid,.cont-grid{grid-template-columns:1fr}
+  .hero-grid,.enc-grid,.revenda-grid,.cont-grid{grid-template-columns:1fr}
+  .hist-grid{grid-template-columns:1fr;grid-template-areas:"head" "img" "copy";gap:0}
+  .origem-grid{grid-template-columns:1fr;grid-template-areas:"head" "img" "copy";gap:0}
+  .hist-head,.origem-head{margin-bottom:20px}
+  .hist-img,.origem-img{margin-bottom:24px}
   .perfil-grid{grid-template-columns:repeat(3,1fr)}
   .steps{grid-template-columns:repeat(2,1fr);gap:40px 0}
   .prep-body h3{font-size:1.4rem}
@@ -313,18 +326,18 @@ footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30
 <!-- HISTORIA -->
 <section class="historia" id="historia">
   <div class="wrap hist-grid">
+    <div class="hist-head reveal">
+      <div class="eyebrow">Nossa História</div>
+      <h2>O sabor de Goiás<br>em cada xícara</h2>
+    </div>
+    <div class="hist-img reveal">
+      <img src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786634934/goiascafe_dxlxmm.png" alt="Café Nillo — o sabor de Goiás">
+    </div>
     <div class="hist-copy reveal">
-      <div class="sec-head" style="margin-bottom:28px">
-        <div class="eyebrow">Nossa História</div>
-        <h2>O sabor de Goiás<br>em cada xícara</h2>
-      </div>
       <p>O Café Nillo nasceu em Goiás e leva em seu nome a essência do seu idealizador, Danillo Abdala. Mais do que uma marca, é o resultado da paixão pelo café e do desejo de oferecer uma bebida que una qualidade, sabor e autenticidade.</p>
       <p>Acreditamos que um café especial começa muito antes da xícara. Por isso, cada etapa recebe atenção cuidadosa: da seleção dos grãos ao processo de torra, sempre com o compromisso de preservar os aromas, o equilíbrio e a riqueza de sabores que tornam o café uma experiência única.</p>
       <p>Nosso propósito é simples: entregar um café fino, saboroso e feito com dedicação, valorizando a origem goiana e o cuidado artesanal em cada detalhe.</p>
       <a href="#contato" class="btn btn-dark" style="margin-top:24px">Fale Conosco</a>
-    </div>
-    <div class="hist-img reveal">
-      <img src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786634934/goiascafe_dxlxmm.png" alt="Café Nillo — o sabor de Goiás">
     </div>
   </div>
 </section>
@@ -332,12 +345,14 @@ footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30
 <!-- ORIGEM -->
 <section class="origem" id="origem">
   <div class="wrap origem-grid">
+    <div class="origem-head reveal">
+      <div class="eyebrow" style="color:var(--gold-soft)">De Goiás para sua xícara</div>
+      <h2>Da origem<br>ao aroma</h2>
+    </div>
     <div class="media origem-img reveal">
       <img src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786634276/mockupnillo_rxjorb.jpg" alt="Café Nillo — embalagem">
     </div>
     <div class="origem-copy reveal">
-      <div class="eyebrow" style="color:var(--gold-soft)">De Goiás para sua xícara</div>
-      <h2 style="font-size:clamp(2.2rem,4.5vw,3.3rem);color:var(--brown-dark);line-height:1.02;margin-top:12px">Da origem<br>ao aroma</h2>
       <p class="lead">Um café 100% arábica, torrado e moído no coração do Brasil. Indústria brasileira, feita para quem valoriza sabor e corpo em cada xícara.</p>
       <div class="spec-list">
         <div class="spec">
@@ -684,6 +699,7 @@ footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30
   var vid=document.getElementById('introVid');
   var skip=document.getElementById('introSkip');
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isMobile=window.matchMedia('(max-width: 768px)').matches;
   var jaViu=sessionStorage.getItem('nilloIntro')==='1';
   function fecharIntro(){
     if(intro.classList.contains('hide')) return;
@@ -693,7 +709,7 @@ footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30
     try{sessionStorage.setItem('nilloIntro','1');}catch(e){}
     setTimeout(function(){ if(intro&&intro.parentNode){intro.parentNode.removeChild(intro);} },900);
   }
-  if(jaViu || reduce){ fecharIntro(); return; }
+  if(jaViu || reduce || isMobile){ fecharIntro(); return; }
   document.body.classList.add('intro-lock');
   skip.addEventListener('click',fecharIntro);
   if(vid){
