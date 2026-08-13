@@ -187,6 +187,24 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(36,24,17,.96);backdr
 .city-more{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.05rem!important;color:var(--gold)!important}
 
 /* CLIENTES */
+.vend-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:760px;margin:0 auto}
+.vend-card{background:rgba(36,24,17,.55);border:1px solid rgba(201,162,75,.28);border-radius:10px;padding:30px 26px;text-align:center;backdrop-filter:blur(3px);transition:.25s}
+.vend-card:hover{border-color:var(--gold);background:rgba(201,162,75,.1)}
+.vend-region{display:inline-flex;align-items:center;gap:7px;color:var(--gold);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.82rem;font-weight:600;margin-bottom:12px}
+.vend-region svg{width:20px;height:20px}
+.vend-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);font-weight:600;line-height:1}
+.vend-desc{color:rgba(245,240,230,.7);font-size:.9rem;margin:6px 0 20px}
+.vend-btn{justify-content:center;width:100%}
+@media(max-width:640px){.vend-grid{grid-template-columns:1fr;max-width:400px}}
+.cont-vend{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cont-vend .vend-card{background:var(--cream);border:1px solid var(--line)}
+.cont-vend .vend-card:hover{border-color:var(--gold);background:#fff}
+.cont-vend .vend-region{color:var(--gold-soft)}
+.cont-vend .vend-name{color:var(--brown-dark)}
+.cont-vend .vend-desc{color:var(--muted)}
+@media(max-width:640px){.cont-vend{grid-template-columns:1fr}}
+
+/* CLIENTES */
 .clientes-wrap{position:relative;z-index:1;margin-top:64px;padding-top:44px;border-top:1px solid rgba(201,162,75,.2)}
 .cli-group{margin-bottom:36px}
 .cli-group:last-child{margin-bottom:0}
@@ -319,7 +337,10 @@ footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <img class="hero-full" src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786630439/headernillo_lfvqa4.jpg" alt="Café Nillo">
+  <picture>
+    <source media="(max-width:768px)" srcset="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786641786/banner_novo-mobile_uikmpk.jpg">
+    <img class="hero-full" src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1786641785/banner_novo_brez3f.jpg" alt="Café Nillo">
+  </picture>
   <svg class="scroll-hint" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </section>
 
@@ -642,18 +663,32 @@ footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30
         </a>
       </div>
     </div>
-    <form class="reveal" id="contatoForm" onsubmit="enviarWhats(event)">
-      <div class="field"><label for="nome">Nome</label><input id="nome" type="text" placeholder="Seu nome" required></div>
-      <div class="field"><label for="email">E-mail</label><input id="email" type="email" placeholder="voce@email.com"></div>
-      <div class="field"><label for="tel">Telefone</label><input id="tel" type="tel" placeholder="(00) 00000-0000"></div>
-      <div class="field"><label for="assunto">Assunto</label><input id="assunto" type="text" placeholder="Assunto"></div>
-      <div class="field full"><label for="msg">Mensagem</label><textarea id="msg" placeholder="Escreva sua mensagem..." required></textarea></div>
-      <button type="submit" class="btn btn-gold">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.5-6c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.3 7.3 0 01-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3A2.8 2.8 0 006 8.9c0 1.7 1.2 3.3 1.4 3.5a12.5 12.5 0 004.8 4.2c2.3.9 2.3.6 2.7.6a2.5 2.5 0 001.6-1.1 2 2 0 00.2-1.1c-.1 0-.3-.1-.5-.2z"/></svg>
-        Enviar pelo WhatsApp
-      </button>
-      <p style="grid-column:1/-1;font-size:.78rem;color:var(--muted);text-align:center;margin-top:-4px">Ao enviar, você será direcionado ao nosso WhatsApp com a mensagem pronta.</p>
-    </form>
+    <div class="cont-vend reveal">
+      <div class="vend-card">
+        <div class="vend-region">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5-7-11a7 7 0 0114 0c0 6-7 11-7 11z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span>Goiânia</span>
+        </div>
+        <div class="vend-name">Danillo</div>
+        <p class="vend-desc">Atendimento na capital.</p>
+        <a href="https://wa.me/5562984095326" target="_blank" rel="noopener" class="btn btn-gold vend-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.5-6c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.3 7.3 0 01-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3A2.8 2.8 0 006 8.9c0 1.7 1.2 3.3 1.4 3.5a12.5 12.5 0 004.8 4.2c2.3.9 2.3.6 2.7.6a2.5 2.5 0 001.6-1.1 2 2 0 00.2-1.1c-.1 0-.3-.1-.5-.2z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+      <div class="vend-card">
+        <div class="vend-region">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5-7-11a7 7 0 0114 0c0 6-7 11-7 11z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span>Interior de Goiás</span>
+        </div>
+        <div class="vend-name">Henrique</div>
+        <p class="vend-desc">Atendimento no interior do estado.</p>
+        <a href="https://wa.me/5562993126348" target="_blank" rel="noopener" class="btn btn-gold vend-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.4 5 5.1-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.5-6c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.3 7.3 0 01-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 00-.7.3A2.8 2.8 0 006 8.9c0 1.7 1.2 3.3 1.4 3.5a12.5 12.5 0 004.8 4.2c2.3.9 2.3.6 2.7.6a2.5 2.5 0 001.6-1.1 2 2 0 00.2-1.1c-.1 0-.3-.1-.5-.2z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -722,24 +757,6 @@ footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30
   } else { fecharIntro(); }
 })();
 
-// Número do WhatsApp (formato internacional, só dígitos)
-var WHATSAPP = "5562984095326";
-function enviarWhats(e){
-  e.preventDefault();
-  var nome=(document.getElementById('nome').value||'').trim();
-  var email=(document.getElementById('email').value||'').trim();
-  var tel=(document.getElementById('tel').value||'').trim();
-  var assunto=(document.getElementById('assunto').value||'').trim();
-  var msg=(document.getElementById('msg').value||'').trim();
-  var linhas=['*Contato via site — Café Nillo*',''];
-  if(nome) linhas.push('*Nome:* '+nome);
-  if(email) linhas.push('*E-mail:* '+email);
-  if(tel) linhas.push('*Telefone:* '+tel);
-  if(assunto) linhas.push('*Assunto:* '+assunto);
-  if(msg) linhas.push('','*Mensagem:*',''+msg);
-  var texto=encodeURIComponent(linhas.join('\n'));
-  window.open('https://wa.me/'+WHATSAPP+'?text='+texto,'_blank');
-}
 document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
 
 // ---- Passo a passo de preparo (auto + controles) ----
