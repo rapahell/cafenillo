@@ -205,6 +205,23 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(36,24,17,.96);backdr
 @keyframes floatUp{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(-4px);opacity:1}}
 @keyframes pourDrop{0%{opacity:0;transform:translateY(-4px)}40%{opacity:1}100%{opacity:0;transform:translateY(6px)}}
 
+/* BANNER CAFÉ FRESCO */
+.fresco{background:var(--brown-dark);color:var(--cream);position:relative;overflow:hidden}
+.fresco::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(201,162,75,.12),transparent 50%)}
+.fresco-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.fresco-img{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:rgba(245,240,230,.04);border:1px solid rgba(201,162,75,.25)}
+.fresco-img img{width:100%;height:100%;object-fit:cover;display:block}
+.fresco-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:rgba(201,162,75,.6);text-align:center;padding:24px}
+.fresco-ph svg{width:54px;height:54px}
+.fresco-ph span{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;font-weight:600}
+.fresco-copy .eyebrow{color:var(--gold)}
+.fresco-copy h2{font-size:clamp(2rem,4vw,3rem);color:var(--cream);line-height:1.04;margin:12px 0 18px}
+.fresco-copy p{color:rgba(245,240,230,.82);max-width:440px;margin-bottom:30px;font-weight:300}
+@media(max-width:860px){
+  .fresco-grid{grid-template-columns:1fr;gap:34px}
+  .fresco-img{order:-1}
+}
+
 /* ENCONTRAR */
 .encontrar{position:relative;color:var(--cream);overflow:hidden}
 .encontrar .enc-bg{position:absolute;inset:0;z-index:0}
@@ -611,6 +628,21 @@ footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
         </button>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER CAFÉ FRESCO -->
+<section class="fresco" id="fresco">
+  <div class="wrap fresco-grid">
+    <div class="fresco-img reveal">
+      <img src="https://res.cloudinary.com/dnnnn7njk/image/upload/v1787026995/cafe_torrado_vd3wsr.jpg" alt="Café Nillo torrado, moído na hora">
+    </div>
+    <div class="fresco-copy reveal">
+      <div class="eyebrow">Torrado na hora</div>
+      <h2>Café torrado para<br>moer na hora</h2>
+      <p>Vendemos café torrado fresquinho, no grão, ideal para máquinas de moer na hora. Todo o aroma e o sabor preservados até o momento do preparo. Atendemos Goiânia e região.</p>
+      <a href="#contato" class="btn btn-gold">Quero saber mais</a>
     </div>
   </div>
 </section>
