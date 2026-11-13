@@ -282,6 +282,8 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(36,24,17,.96);backdr
 .cli-label::before{right:calc(50% + 110px)}
 .cli-label::after{left:calc(50% + 110px)}
 .cli-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.cli-grid.balanced{flex-direction:column;align-items:center}
+.cli-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%}
 .cli-card{background:rgba(245,240,230,.06);border:1px solid rgba(201,162,75,.28);border-radius:6px;padding:14px 22px;font-family:'Barlow Condensed',sans-serif;font-size:1.02rem;font-weight:500;letter-spacing:.03em;color:var(--cream);transition:.25s;text-align:center}
 .cli-card:hover{border-color:var(--gold);background:rgba(201,162,75,.16);transform:translateY(-3px)}
 @media(max-width:560px){
@@ -690,6 +692,7 @@ footer{background:var(--brown-deep);color:rgba(245,240,230,.7);padding:66px 0 30
         <div class="cli-card">Super Couto</div>
         <div class="cli-card">Supermercado Mais União</div>
         <div class="cli-card">Supermercado Galvão</div>
+        <div class="cli-card">Supermercado Boa Sorte</div>
       </div>
     </div>
 
@@ -925,6 +928,33 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 }else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+<script>
+/* Equilibra as linhas das listas de clientes: distribui os cards por igual entre as linhas */
+(function(){
+  function oneLine(row){var c=row.children,t=c[0].offsetTop;for(var i=1;i<c.length;i++){if(Math.abs(c[i].offsetTop-t)>2)return false}return true}
+  function balance(){
+    document.querySelectorAll('.cli-grid').forEach(function(g){
+      if(!g._cards)g._cards=[].slice.call(g.querySelectorAll('.cli-card'));
+      var cards=g._cards;
+      g.classList.remove('balanced');g.innerHTML='';cards.forEach(function(c){g.appendChild(c)});
+      if(window.innerWidth<=560)return;
+      var tops={};cards.forEach(function(c){tops[Math.round(c.offsetTop)]=1});
+      var r=Object.keys(tops).length,n=cards.length;if(r<2)return;
+      for(;r<=n;r++){
+        g.innerHTML='';g.classList.add('balanced');
+        var base=Math.floor(n/r),extra=n%r,k=0,rowsEl=[];
+        for(var i=0;i<r;i++){var row=document.createElement('div');row.className='cli-row';
+          for(var j=0;j<base+(i<extra?1:0);j++)row.appendChild(cards[k++]);
+          g.appendChild(row);rowsEl.push(row)}
+        if(rowsEl.every(oneLine))return;
+      }
+    });
+  }
+  var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(balance,120)});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(balance);
+  window.addEventListener('load',balance);balance();
+})();
 </script>
 </body>
 </html>
